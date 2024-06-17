@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const AdminNavbar = () => {
   return (
     <div className="container-xxl position-relative p-0">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
@@ -13,10 +13,10 @@ const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto py-0 pe-4">
-                        <Link to="/" className="nav-item nav-link active">Trang chủ</Link>
+                        <Link to="/" className="nav-item nav-link">Trang chủ</Link>
 
 
-                        <Link to="menu" className="nav-item nav-link">Thực đơn</Link>
+                        <Link to="employees" className="nav-item nav-link">Nhân viên</Link>
                         {/* <div className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Khu vực</a>
                             <div className="dropdown-menu m-0">
@@ -29,6 +29,8 @@ const Navbar = () => {
                         <div className="nav-item dropdown">
                             <a href="" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tài khoản</a>
                             <div className="dropdown-menu m-0">
+                                <Link to="/employees" className="dropdown-item">Khu vực quản trị</Link>
+                                <Link to="/employees" className="dropdown-item">Khu vực quản trị</Link>
                                 <Link to="/employees" className="dropdown-item">Khu vực quản trị</Link>
                             </div>
                         </div>
@@ -44,4 +46,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default AdminNavbar

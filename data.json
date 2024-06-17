@@ -1,0 +1,43 @@
+{
+    "categories":  [
+        {
+            "id": 1,
+            "name": "Bữa sáng",
+            "icon": "fa fa-coffee fa-2x text-primary"
+        },
+        {
+            "id": 2,
+            "name": "Bữa trưa",
+            "icon": "fa fa-hamburger fa-2x text-primary"
+        },
+        {
+            "id": 3,
+            "name": "Bữa tối",
+            "icon": "fa fa-utensils fa-2x text-primary"
+        }
+    ],
+
+    "foods": [
+        {
+            "id": 1,
+            "name": "Phở bò",
+            "price": 50000,
+            "img": "https://photo-cms-baophapluat.epicdn.me/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg",
+            "category_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Bánh mì thập cẩm",
+            "price": 50000,
+            "img": "https://static.vinwonders.com/production/banh-mi-sai-gon-2.jpg",
+            "category_id": 1
+        },
+        {
+            "id": 3,
+            "name": "Há cảo",
+            "price": 60000,
+            "img": "https://barona.vn/storage/meo-vat/127/cach-lam-ha-cao.jpg",
+            "category_id": 1
+        }
+    ]
+}
