@@ -53,7 +53,7 @@ const FoodIndex = () => {
                                 {
                                     foods.map((food, index) => (
                                         <tr key={food.id}>
-                                        <td className="text-center align-middle">{index}</td>
+                                        <td className="text-center align-middle">{index+1}</td>
                                         <td className="text-center align-middle">{food.name}</td>
                                         <td className="text-center align-middle">{food.price}</td>
                                         <td className="text-center align-middle">
@@ -61,7 +61,7 @@ const FoodIndex = () => {
                                         </td>
                                         <td className="text-center align-middle">
                                             <a href=""><i className="fa-solid fa-eye"></i></a>
-                                            <a href=""><i className="fa-solid fa-pen-to-square"></i></a>
+                                            <Link to={`/foods/edit/${food.id}`}><i className="fa-solid fa-pen-to-square"></i></Link>
                                             <a href="#" data-toggle="modal" data-target="#A{{ $user->id }}"><i className="fa-solid fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>

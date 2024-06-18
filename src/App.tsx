@@ -14,6 +14,9 @@ import EditEmployee from './components/Employee/EditEmployee';
 import Schedule from './components/Cv/Lichlv';
 import EditShcedule from './components/Cv/editShedule';
 import CreateSchedule from './components/Cv/CreateSheule';
+import CreateFood from './components/food/CreateFood';
+import FoodIndex from './components/food/FoodIndex';
+import EditFood from './components/food/EditFood';
 
 
 
@@ -40,6 +43,9 @@ function App() {
         <Route path="employees/create" element={<CreateEmployee />} />
         <Route path="employees/edit/:id" element={<EditEmployee />} />
         <Route path="/menu" element={<MenuIndex />} />
+        <Route path="/foods/create" element={<CreateFood />} />
+        <Route path='/foods' element={<FoodIndex />} />
+        <Route path="/foods/edit/:id" element={<EditFood />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/schedule/edit/:id" element={<EditShcedule />} />
         <Route path="/schedule/create" element={<CreateSchedule />} />
