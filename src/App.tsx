@@ -10,8 +10,12 @@ import MenuIndex from './components/menu/MenuIndex';
 import Header from './components/layouts/Header';
 import AdminNavbar from './components/layouts/AdminNavbar';
 import CreateEmployee from './components/Employee/CreateEmployee';
-import FoodIndex from './components/food/FoodIndex';
-import CreateFood from './components/food/CreateFood';
+import EditEmployee from './components/Employee/EditEmployee';
+import Schedule from './components/Cv/Lichlv';
+import EditShcedule from './components/Cv/editShedule';
+import CreateSchedule from './components/Cv/CreateSheule';
+
+
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -34,9 +38,11 @@ function App() {
         <Route path="/booking" element={<BookingIndex />} />
         <Route path="/employees" element={<EmployeeIndex />} />
         <Route path="employees/create" element={<CreateEmployee />} />
+        <Route path="employees/edit/:id" element={<EditEmployee />} />
         <Route path="/menu" element={<MenuIndex />} />
-        <Route path="/foods/create" element={<CreateFood />} />
-        <Route path='/foods' element={<FoodIndex />} />
+        <Route path="/schedule" element={<Schedule />} />
+        <Route path="/schedule/edit/:id" element={<EditShcedule />} />
+        <Route path="/schedule/create" element={<CreateSchedule />} />
       </Routes>
       <Footer />
     </div>
