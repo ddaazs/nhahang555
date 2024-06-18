@@ -34,7 +34,7 @@ const AdminNavbar = () => {
                                 <Link to="/employees" className="dropdown-item">Khu vực quản trị</Link>
                             </div>
                         </div>
-                        <a href="contact.html" className="nav-item nav-link">Liên hệ</a>
+                        <Link to="foods" className="nav-item nav-link">Món ăn</Link>
                     </div>
                     <Link to="booking" className="btn btn-primary py-2 px-4">Đặt bàn</Link>
                 </div>

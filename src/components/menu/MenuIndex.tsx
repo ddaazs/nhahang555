@@ -19,6 +19,7 @@ const MenuIndex = () => {
 
     const [categories, setCategories]  =  useState<Category[]>([]);
     const [foods, setFoods] = useState<Food[]>([]);
+    const [catId, setCatId] = useState<number>(0);
 
     const loadCategories = async () => {
         const result = await axios.get("http://localhost:5000/categories", {
@@ -29,19 +30,27 @@ const MenuIndex = () => {
         setCategories(result.data);
     }
 
+    const clickCategory = async (id: number) => {
+        setCatId(id);
+    }
+
     const loadFoods = async () => {
-        const result = await axios.get("http://localhost:5000/foods", {
-            validateStatus: () => {
-                return true;
-            }
-        });
-        setFoods(result.data);
+        if (catId != 0) {
+            const result = await axios.get("http://localhost:5000/foods?category_id="+catId);
+            console.log(result.data);
+            setFoods(result.data);
+        }   
+        else {
+            const result = await axios.get("http://localhost:5000/foods");
+            setFoods(result.data);
+        }     
     }
 
     useEffect(() => {
         loadCategories();
         loadFoods();
-    }, []);
+        clickCategory(catId);
+    }, [catId]);
 
   return (
     <div className="container-xxl py-5">
@@ -54,7 +63,7 @@ const MenuIndex = () => {
                 <ul className="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
                 {categories.map((category, index) => (
                     <li className="nav-item" key={category.id}>
-                        <a className="d-flex align-items-center text-start mx-3 ms-0 pb-3" data-bs-toggle="pill" href="#tab-1">
+                        <a onClick={() => clickCategory(category.id)} className="d-flex align-items-center text-start mx-3 ms-0 pb-3" data-bs-toggle="pill" href="#tab-1">
                             <i className={category.icon}></i>
                             <div className="ps-3">
                             <h6 className="mt-n1 mb-0">{category.name}</h6>

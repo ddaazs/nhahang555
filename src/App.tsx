@@ -10,13 +10,15 @@ import MenuIndex from './components/menu/MenuIndex';
 import Header from './components/layouts/Header';
 import AdminNavbar from './components/layouts/AdminNavbar';
 import CreateEmployee from './components/Employee/CreateEmployee';
+import FoodIndex from './components/food/FoodIndex';
+import CreateFood from './components/food/CreateFood';
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const location = useLocation();
   useEffect(() => {
     const path = location.pathname;
-      if (path.startsWith('/employees')){
+      if (path.startsWith('/employees') || path.startsWith('/foods')){
         setIsAdmin(true);
       }
       else {
@@ -33,6 +35,8 @@ function App() {
         <Route path="/employees" element={<EmployeeIndex />} />
         <Route path="employees/create" element={<CreateEmployee />} />
         <Route path="/menu" element={<MenuIndex />} />
+        <Route path="/foods/create" element={<CreateFood />} />
+        <Route path='/foods' element={<FoodIndex />} />
       </Routes>
       <Footer />
     </div>
