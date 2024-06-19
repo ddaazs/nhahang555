@@ -41,7 +41,7 @@ function App() {
     <div>
       {isAdmin ? <AdminNavbar /> : <Navbar />}
       <Routes>
-        <Route path='/' element={<Header />} />
+        <Route path='/home' element={<Header />} />
         <Route path="/booking" element={<BookingIndex />} />
         <Route path="/employees" element={<EmployeeIndex />} />
         <Route path="employees/create" element={<CreateEmployee />} />

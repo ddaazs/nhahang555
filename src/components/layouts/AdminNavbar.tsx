@@ -17,7 +17,7 @@ const AdminNavbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto py-0 pe-4">
-                        <Link to="/" className="nav-item nav-link">Trang chủ</Link>
+                        <Link to="/home" className="nav-item nav-link">Trang chủ</Link>
 
 
                         <Link to="employees" className={`nav-item nav-link ${employeeActive ? 'active' : ''}`}>Nhân viên</Link>
