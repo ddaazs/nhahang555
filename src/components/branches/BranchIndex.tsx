@@ -1,7 +1,10 @@
-import { Link, useNavigate } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
 import { Modal, Button } from 'react-bootstrap';
 import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export const BranchIndex = () =>{
@@ -16,13 +19,17 @@ export const BranchIndex = () =>{
         profit:number;
 
     };
-
     const [branch, setBranches] = React.useState<Branch[]>([]);
         const [showModal, setShowModal] = useState(false);
         const navigate = useNavigate();
+        const [selectedBranchId, setSelectedBranchId] = useState<number | null>(null);
+
       
         const handleClose = () => setShowModal(false);
-        const handleShow = () => setShowModal(true);
+        const handleShow = (id:number) => {
+          setSelectedBranchId(id);
+          setShowModal(true);
+        }
       
         const handleEdit = (id: number) => {
           navigate(`/branches/edit/${id}`);
@@ -30,12 +37,27 @@ export const BranchIndex = () =>{
         const handleAdd = () => {
           navigate('/branches/create');
         };
+
+       
+      
     
         const loadBranches = async () => {
             const result = await axios.get('http://localhost:5000/branches');
             setBranches(result.data);
         }
-    
+        
+        const handleDelete = async () => {
+          const result = await axios.get('http://localhost:5000/branches');
+          if (result !== null) {
+              await axios.delete(`http://localhost:5000/branches/${selectedBranchId}`);
+              setBranches(branch.filter((b) => b.id !== selectedBranchId));
+              setShowModal(false);
+              toast.success("Xóa thành công !", {
+                position: 'bottom-left',
+              });
+          }
+        }; 
+
         React.useEffect(() => {
             loadBranches();
         }, []);
@@ -45,7 +67,7 @@ export const BranchIndex = () =>{
     <div className="container mt-4">
     <div className="card container">
       <div className="card-header">
-        <h3>Danh Sách Nhân Sự</h3>
+        <h3>Danh Sách chi nhánh</h3>
       </div>
       <div className="card-body">
         <div className="mb-3 d-flex justify-content-between">
@@ -68,6 +90,7 @@ export const BranchIndex = () =>{
               <th className="text-center align-middle">Nhà cung cấp nguyên liệu</th>
               <th className="text-center align-middle">Số điện thoại</th>
               <th className="text-center align-middle">Địa chỉ</th>
+              <th className="text-center align-middle">Lợi nhuận</th>
               <th className="text-center align-middle">Thao tác</th>
             </tr>
           </thead>
@@ -79,7 +102,9 @@ export const BranchIndex = () =>{
                 <td className="text-center align-middle">{branch.manager}</td>
                 <td className="text-center align-middle">{branch.supplier}</td>
                 <td className="text-center align-middle">{branch.phone_number}</td>
+                
                 <td className="text-center align-middle">{branch.address}</td>
+                <td className="text-center align-middle">{branch.profit}</td>
                 <td className="text-center align-middle">
                   <button 
                     className="btn btn-sm btn-primary me-2" 
@@ -91,7 +116,7 @@ export const BranchIndex = () =>{
                   <button 
                     className="btn btn-sm btn-danger" 
                     style={{ borderRadius: '8px' }} 
-                    onClick={handleShow}
+                    onClick={() => handleShow(branch.id)}
                   >
                     <i className="fa fa-trash"></i>
                   </button>
@@ -126,10 +151,9 @@ export const BranchIndex = () =>{
             >
             Quay lại
             </Button>
+            <div> 
             <Button 
-            variant="primary" 
-            onClick={handleClose} 
-            style={{ 
+            variant="primary" onClick={handleDelete} style={{ 
                 borderRadius: '8px', 
                 backgroundColor: 'white', 
                 border: '2px solid blue', 
@@ -137,10 +161,12 @@ export const BranchIndex = () =>{
                 padding: '8px 16px', 
                 fontSize: '16px',  
                 fontWeight: 'bold'  
-            }}
-            >
-            Có
-            </Button>
+            }}> Có </Button>
+            
+              <ToastContainer />
+            </div>
+           
+
         </Modal.Footer>
         </Modal>
     </div>

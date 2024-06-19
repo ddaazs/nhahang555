@@ -6,20 +6,20 @@ export const EditBranch = () => {
   const {id} = useParams();
   const navigate = useNavigate();
   type Branch = {
-    id : number;
-    br_id:string;
-    vote : string;
-    manager : string;
-    supplier: string;
-    phone_number: number;
-    address: string;
-    profit:number;
+    id ?: number;
+    br_id?:string;
+    vote ?: string;
+    manager ?: string;
+    supplier?: string;
+    phone_number?: number;
+    address?: string;
+    profit?:number;
   }
   
     const [branch, setBranch] = React.useState<Branch>({});
 
     const getBranch = async () => {
-        const result = await axios.get(`https://localhost:5000/branches/${id}`);
+        const result = await axios.get(`http://localhost:5000/branches/${id}`);
         console.log(result.data);
         setBranch(result.data);
     }
@@ -50,33 +50,33 @@ export const EditBranch = () => {
           <form onSubmit={e => saveBranch(e)}>
             <div className="mb-3 d-flex align-items-center">
               <label className="form-label col-3">Mã chi nhánh:</label>
-              <input className="form-control" type="text" name="name" id="" value={branch.id} onChange={e => handleChage(e)}/>
+              <input className="form-control" type="text" name="br_id" id="" value={branch.br_id} onChange={e => handleChage(e)}/>
             </div>
             <div className="mb-3 d-flex align-items-center">
               <label className="form-label col-3">Đánh giá:</label>
-              <input className="form-control" type="text" name="name" id="" value={branch.vote} onChange={e => handleChage(e)}/>
+              <input className="form-control" type="text" name="vote" id="" value={branch.vote} onChange={e => handleChage(e)}/>
             </div>
             <div className="mb-3 d-flex align-items-center">
               <label className="form-label col-3">Người quản lý:</label>
-              <input className="form-control" type="text" name="name" id="" value={branch.manager} onChange={e => handleChage(e)}/>
+              <input className="form-control" type="text" name="manager" id="" value={branch.manager} onChange={e => handleChage(e)}/>
             </div>
             <div className="mb-3 d-flex align-items-center">
               <label className="form-label col-3">Nhà cung cấp nguyên liệu:</label>
-              <input className="form-control" type="text" name="name" id="" value={branch.supplier} onChange={e => handleChage(e)}/>
+              <input className="form-control" type="text" name="supplier" id="" value={branch.supplier} onChange={e => handleChage(e)}/>
             </div>
             <div className="mb-3 d-flex align-items-center">
               <label className="form-label col-3">Số điện thoại:</label>
-              <input className="form-control" type="text" name="name" id="" value={branch.phone_number} onChange={e => handleChage(e)}/>
+              <input className="form-control" type="text" name="phone_number" id="" value={branch.phone_number} onChange={e => handleChage(e)}/>
             </div>
 
             <div className="mb-3 d-flex align-items-center">
-              <label className="form-label col-3" htmlFor="price">Địa chỉ:</label>
-              <input className="form-control" type="text" name="price" id="price" value={branch.address} onChange={e => handleChage(e)} style={{ borderRadius: "5px" }} />
+              <label className="form-label col-3" htmlFor="address">Địa chỉ:</label>
+              <input className="form-control" type="text" name="address" id="address" value={branch.address} onChange={e => handleChage(e)} style={{ borderRadius: "5px" }} />
             </div>
 
             <div className="mb-3 d-flex align-items-center">
-              <label className="form-label col-3" htmlFor="price">Lợi nhuận:</label>
-              <input className="form-control" type="text" name="price" id="price" value={branch.profit} onChange={e => handleChage(e)} style={{ borderRadius: "5px" }} />
+              <label className="form-label col-3" htmlFor="profit">Lợi nhuận:</label>
+              <input className="form-control" type="text" name="profit" id="profit" value={branch.profit} onChange={e => handleChage(e)} style={{ borderRadius: "5px" }} />
             </div>
 
 

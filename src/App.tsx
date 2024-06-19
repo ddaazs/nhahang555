@@ -55,7 +55,7 @@ function App() {
         <Route path="/schedule/create" element={<CreateSchedule />} />
         <Route path="/branches" element={<BranchIndex />} />
         <Route path="branches/create" element={<CreateBranch />} />
-        <Route path="branches/edit" element={<EditBranch />} />
+        <Route path="branches/edit/:id" element={<EditBranch />} />
         <Route path="branches/delete" element={<DeleteBranch />} />
         
 

@@ -5,14 +5,14 @@ import { Link, useNavigate } from 'react-router-dom'
 export const CreateBranch = () => {
     let navigate = useNavigate();
     type Branch = {
-        id : number;
-        br_id:string;
-        vote : string;
-        manager : string;
-        supplier: string;
-        phone_number: number;
-        address: string;
-        profit:number;
+        id ?: number;
+        br_id?:string;
+        vote ?: string;
+        manager ?: string;
+        supplier?: string;
+        phone_number?: number;
+        address?: string;
+        profit?:number;
 
     };
 
@@ -26,7 +26,7 @@ export const CreateBranch = () => {
     }
 
     const handleChage = (e: any) => {
-        setBranch({...branch, [e.target.value] : e.target.value});
+        setBranch({...branch, [e.target.name] : e.target.value});
     }
 
 
@@ -40,7 +40,7 @@ export const CreateBranch = () => {
                         <form onSubmit={e => saveBranch(e)}>
                             <div className="input-group mt-3 mb-3">
                                 <label className="input-group-text" htmlFor="">Mã chi nhánh:</label>
-                                <input className="form-control" type="text" name="branch_id" id="" value={branch.br_id} onChange={e => handleChage(e)} />
+                                <input className="form-control" type="text" name="br_id" id="" value={branch.br_id} onChange={e => handleChage(e)} />
                             </div>
 
                             <div className="input-group mt-3 mb-3">
@@ -50,7 +50,7 @@ export const CreateBranch = () => {
 
                             <div className="input-group mt-3 mb-3">
                                 <label className="input-group-text" htmlFor="">Nhà cung cấp nguyên liệu:</label>
-                                <input className="form-control" type="" name="suplier" id="" value={branch.supplier} onChange={e => handleChage(e)}/>
+                                <input className="form-control" type="" name="supplier" id="" value={branch.supplier} onChange={e => handleChage(e)}/>
                             </div>
 
                             <div className="input-group mt-3 mb-3">

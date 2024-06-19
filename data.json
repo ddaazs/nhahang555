@@ -53,19 +53,15 @@
       "category_id": "2"
     }
   ],
-  "employees":[
-    
-  ],
+  "employees": [],
   "branches": [
     {
-      "id": "1" ,
-      "br_id": "CN1",
-      "vote": "4/5",
-      "manager": "Nguyễn Ngọc Đăng",
-      "supplier": "Cty 1 thành viên",
-      "phone_number": "0973997450",
-      "address": "522 Trường chinh",
-      "profit": "500.000.000đ"
+      "id": "bfb5",
+      "br_id": "231",
+      "manager": "3123123",
+      "supplier": "12312",
+      "phone_number": "312321",
+      "address": "31"
     }
   ]
 }
