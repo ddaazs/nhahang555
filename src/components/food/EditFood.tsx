@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const EditFood = () => {
     const {id} = useParams();
@@ -45,7 +47,8 @@ const EditFood = () => {
     const saveFood = async (e: React.FormEvent) => {
         e.preventDefault();
         await axios.put(`http://localhost:5000/foods/${id}`, food);
-        navigate('/foods');
+        toast.success('Cập nhật món ăn thành công');
+        // navigate('/foods');
     }
 
   return (
@@ -86,7 +89,7 @@ const EditFood = () => {
               <div className="form-group float-end">
                 <Link to={"/foods"} type="button" className="btn btn-secondary me-2" style={{ 
                   borderRadius: '10px', 
-                  backgroundColor: 'red', 
+                  // backgroundColor: 'red', 
                   border: '2px solid', 
                   padding: '8px 16px', 
                   fontSize: '16px',  
@@ -95,7 +98,7 @@ const EditFood = () => {
 
                 <button type="submit" className="btn btn-primary" style={{ 
                   borderRadius: '10px', 
-                  backgroundColor: 'blue', 
+                  // backgroundColor: 'blue', 
                   border: '2px solid', 
                   padding: '8px 16px', 
                   fontSize: '16px',  
@@ -103,6 +106,7 @@ const EditFood = () => {
                 }}>Lưu</button>
               </div>
             </form>
+            <ToastContainer />
           </div>
         </div>
       </div>

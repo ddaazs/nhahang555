@@ -1,6 +1,9 @@
 import axios from 'axios'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 
 const FoodIndex = () => {
     type Food = {
@@ -16,7 +19,34 @@ const FoodIndex = () => {
     const loadFoods = async () => {
         const result = await axios.get('http://localhost:5000/foods');
         setFoods(result.data);
-    }
+    };
+
+    const handleDelete = (id: number) => {
+        return (event: any) => {
+            event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ a
+            Swal.fire({
+              title: 'Bạn có chắc chắn?',
+              text: "Bạn sẽ không thể hoàn tác!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Có, xóa nó!'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/foods/${id}`);
+                console.log(`Đã xóa món ăn có ID: ${id}`);
+                toast.success('Xóa món ăn thành công');
+                Swal.fire(
+                  'Đã Xóa!',
+                  'Món ăn của bạn đã được xóa.',
+                  'success'
+                )
+                loadFoods();
+              }
+            })
+          }
+    };
 
     React.useEffect(() => {
         loadFoods();
@@ -62,13 +92,14 @@ const FoodIndex = () => {
                                         <td className="text-center align-middle">
                                             <a href=""><i className="fa-solid fa-eye"></i></a>
                                             <Link to={`/foods/edit/${food.id}`}><i className="fa-solid fa-pen-to-square"></i></Link>
-                                            <a href="#" data-toggle="modal" data-target="#A{{ $user->id }}"><i className="fa-solid fa-solid fa-trash"></i></a>
+                                            <a href="#" onClick={handleDelete(food.id)} data-toggle="modal" data-target="#A{{ $user->id }}"><i className="fa-solid fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                     ))
                                 }  
                             </tbody>
                         </table>
+                        <ToastContainer />
                     </div>
                 </div>
             </div>
