@@ -51,6 +51,19 @@
       "price": "100000",
       "img": "https://cdn.tgdd.vn/Files/2020/03/02/1239523/cach-lam-banh-pizza-bo-tai-nha-ngon-khong-kem-ngoai-tiem-202205241428465475.jpg",
       "category_id": "2"
+    },
+    {
+      "id": "a94a",
+      "name": "Bún đậu mắm tôm",
+      "price": "70000",
+      "img": "https://trumfood.vn/wp-content/uploads/2022/09/bdmt.jpg",
+      "category_id": "2"
+    },
+    {
+      "id": "7c79",
+      "img": "https://kinhtevadubao.vn/stores/news_dataimages/kinhtevadubaovn/052020/11/15/1588668316-news-1650120210326210830.9724990.jpg",
+      "price": "50000",
+      "name": "Cơm lam"
     }
   ],
   "employees": [],
