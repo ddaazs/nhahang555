@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export const EditBranch = () => {
   const {id} = useParams();
@@ -37,6 +38,11 @@ export const EditBranch = () => {
         e.preventDefault();
         await axios.put(`http://localhost:5000/branches/${id}`, branch);
         navigate('/branches');
+        Swal.fire(
+          'Đã Sửa!',
+          'Sửa chi nhánh thành công.',
+          'success'
+        )
     }
 
   return (
@@ -66,7 +72,7 @@ export const EditBranch = () => {
             </div>
             <div className="mb-3 d-flex align-items-center">
               <label className="form-label col-3">Số điện thoại:</label>
-              <input className="form-control" type="text" name="phone_number" id="" value={branch.phone_number} onChange={e => handleChage(e)}/>
+              <input className="form-control" type="number" name="phone_number" id="" value={branch.phone_number} onChange={e => handleChage(e)}/>
             </div>
 
             <div className="mb-3 d-flex align-items-center">
@@ -76,7 +82,7 @@ export const EditBranch = () => {
 
             <div className="mb-3 d-flex align-items-center">
               <label className="form-label col-3" htmlFor="profit">Lợi nhuận:</label>
-              <input className="form-control" type="text" name="profit" id="profit" value={branch.profit} onChange={e => handleChage(e)} style={{ borderRadius: "5px" }} />
+              <input className="form-control" type="number" name="profit" id="profit" value={branch.profit} onChange={e => handleChage(e)} style={{ borderRadius: "5px" }} />
             </div>
 
 

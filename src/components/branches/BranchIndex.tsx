@@ -3,8 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 
 
 export const BranchIndex = () =>{
@@ -52,9 +51,11 @@ export const BranchIndex = () =>{
               await axios.delete(`http://localhost:5000/branches/${selectedBranchId}`);
               setBranches(branch.filter((b) => b.id !== selectedBranchId));
               setShowModal(false);
-              toast.success("Xóa thành công !", {
-                position: 'bottom-left',
-              });
+              Swal.fire(
+                'Đã Xóa!',
+                'Chi nhánh của bạn đã được xóa.',
+                'success'
+              );
           }
         }; 
 
@@ -163,7 +164,6 @@ export const BranchIndex = () =>{
                 fontWeight: 'bold'  
             }}> Có </Button>
             
-              <ToastContainer />
             </div>
            
 

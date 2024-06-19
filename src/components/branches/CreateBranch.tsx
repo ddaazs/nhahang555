@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2';
+
 
 export const CreateBranch = () => {
     let navigate = useNavigate();
@@ -23,6 +25,11 @@ export const CreateBranch = () => {
         e.preventDefault();
         await axios.post('http://localhost:5000/branches', branch);
         navigate('/branches');
+        Swal.fire(
+            'Đã Thêm!',
+            'Chi nhánh của bạn đã được thêm.',
+            'success'
+          )
     }
 
     const handleChage = (e: any) => {

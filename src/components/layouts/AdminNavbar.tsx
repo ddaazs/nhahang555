@@ -21,6 +21,7 @@ const AdminNavbar = () => {
 
 
                         <Link to="employees" className={`nav-item nav-link ${employeeActive ? 'active' : ''}`}>Nhân viên</Link>
+                        <Link to="branches" className={`nav-item nav-link ${employeeActive ? 'active' : ''}`}>Chi nhánh</Link>
                         {/* <div className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Khu vực</a>
                             <div className="dropdown-menu m-0">

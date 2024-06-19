@@ -69,12 +69,12 @@
   "employees": [],
   "branches": [
     {
-      "id": "bfb5",
-      "br_id": "231",
-      "manager": "3123123",
-      "supplier": "12312",
-      "phone_number": "312321",
-      "address": "31"
+      "id": "1198",
+      "br_id": "CN1",
+      "manager": "Duy",
+      "supplier": "Cty 1 thành viên",
+      "phone_number": "0865956531",
+      "address": "số 11 ngõ 73 tân triều"
     }
   ]
 }
