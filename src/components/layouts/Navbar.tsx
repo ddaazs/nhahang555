@@ -3,7 +3,12 @@ import { Link, useLocation } from 'react-router-dom'
 
 const Navbar = () => {
     const location = useLocation();
-    const homeActive = location.pathname === '/';
+    const homeActive = location.pathname.startsWith('/');
+    const menuActive = location.pathname.startsWith('/menu');   
+    
+    console.log(location.pathname);
+    
+
   return (
     <div className="container-xxl position-relative p-0">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
@@ -18,15 +23,7 @@ const Navbar = () => {
                         <Link to="/" className={`nav-item nav-link ${homeActive ? 'active' : ''}`}>Trang chủ</Link>
 
 
-                        <Link to="menu" className="nav-item nav-link">Thực đơn</Link>
-                        {/* <div className="nav-item dropdown">
-                            <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Khu vực</a>
-                            <div className="dropdown-menu m-0">
-                                <a href="booking.html" className="dropdown-item">Đặt món</a>
-                                <a href="#" className="dropdown-item">Thanh toán</a>
-        
-                            </div>
-                        </div> */}
+                        <Link to="/menu" className={`nav-item nav-link ${menuActive ? 'active' : ''}`}>Thực đơn</Link>
                     </div>
                     <Link to="booking" className="btn btn-primary py-2 px-4">Đặt bàn</Link>
                     <div className="nav-item dropdown me-5">

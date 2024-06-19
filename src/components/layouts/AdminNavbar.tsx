@@ -1,7 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const AdminNavbar = () => {
+    const location = useLocation();
+    const employeeActive = location.pathname.startsWith('/employees');
+    const foodActive = location.pathname.startsWith('/foods');   
+
   return (
     <div className="container-xxl position-relative p-0">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
@@ -16,7 +20,7 @@ const AdminNavbar = () => {
                         <Link to="/" className="nav-item nav-link">Trang chủ</Link>
 
 
-                        <Link to="employees" className="nav-item nav-link">Nhân viên</Link>
+                        <Link to="employees" className={`nav-item nav-link ${employeeActive ? 'active' : ''}`}>Nhân viên</Link>
                         {/* <div className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Khu vực</a>
                             <div className="dropdown-menu m-0">
@@ -25,18 +29,14 @@ const AdminNavbar = () => {
         
                             </div>
                         </div> */}
-
+                        <Link to="foods" className={`nav-item nav-link ${foodActive ? 'active' : ''}`}>Món ăn</Link>
                         <div className="nav-item dropdown">
-                            <a href="" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tài khoản</a>
+                            <a href="" className="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i className="fa-solid fa-user"></i></a>
                             <div className="dropdown-menu m-0">
-                                <Link to="/employees" className="dropdown-item">Khu vực quản trị</Link>
-                                <Link to="/employees" className="dropdown-item">Khu vực quản trị</Link>
-                                <Link to="/employees" className="dropdown-item">Khu vực quản trị</Link>
+                                <Link to="/employees" className="dropdown-item">Đăng xuất</Link>
                             </div>
                         </div>
-                        <Link to="foods" className="nav-item nav-link">Món ăn</Link>
                     </div>
-                    <Link to="booking" className="btn btn-primary py-2 px-4">Đặt bàn</Link>
                 </div>
             </nav>
 
