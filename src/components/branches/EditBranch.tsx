@@ -9,12 +9,10 @@ export const EditBranch = () => {
   type Branch = {
     id ?: number;
     br_id?:string;
-    vote ?: string;
     manager ?: string;
-    supplier?: string;
     phone_number?: number;
     address?: string;
-    profit?:number;
+    profit?:string;
   }
   
     const [branch, setBranch] = React.useState<Branch>({});
@@ -59,16 +57,8 @@ export const EditBranch = () => {
               <input className="form-control" type="text" name="br_id" id="" value={branch.br_id} onChange={e => handleChage(e)}/>
             </div>
             <div className="mb-3 d-flex align-items-center">
-              <label className="form-label col-3">Đánh giá:</label>
-              <input className="form-control" type="text" name="vote" id="" value={branch.vote} onChange={e => handleChage(e)}/>
-            </div>
-            <div className="mb-3 d-flex align-items-center">
               <label className="form-label col-3">Người quản lý:</label>
               <input className="form-control" type="text" name="manager" id="" value={branch.manager} onChange={e => handleChage(e)}/>
-            </div>
-            <div className="mb-3 d-flex align-items-center">
-              <label className="form-label col-3">Nhà cung cấp nguyên liệu:</label>
-              <input className="form-control" type="text" name="supplier" id="" value={branch.supplier} onChange={e => handleChage(e)}/>
             </div>
             <div className="mb-3 d-flex align-items-center">
               <label className="form-label col-3">Số điện thoại:</label>
@@ -82,7 +72,7 @@ export const EditBranch = () => {
 
             <div className="mb-3 d-flex align-items-center">
               <label className="form-label col-3" htmlFor="profit">Lợi nhuận:</label>
-              <input className="form-control" type="number" name="profit" id="profit" value={branch.profit} onChange={e => handleChage(e)} style={{ borderRadius: "5px" }} />
+              <input className="form-control" type="text" name="profit" id="profit" value={branch.profit} onChange={e => handleChage(e)} style={{ borderRadius: "5px" }} />
             </div>
 
 

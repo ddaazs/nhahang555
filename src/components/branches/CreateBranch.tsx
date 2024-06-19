@@ -9,12 +9,10 @@ export const CreateBranch = () => {
     type Branch = {
         id ?: number;
         br_id?:string;
-        vote ?: string;
         manager ?: string;
-        supplier?: string;
         phone_number?: number;
         address?: string;
-        profit?:number;
+        profit?:string;
 
     };
 
@@ -53,11 +51,6 @@ export const CreateBranch = () => {
                             <div className="input-group mt-3 mb-3">
                                 <label className="input-group-text" htmlFor="">Quản lý trưởng chi nhánh:</label>
                                 <input className="form-control" name="manager" id="" value={branch.manager} onChange={e => handleChage(e)} />
-                            </div>
-
-                            <div className="input-group mt-3 mb-3">
-                                <label className="input-group-text" htmlFor="">Nhà cung cấp nguyên liệu:</label>
-                                <input className="form-control" type="" name="supplier" id="" value={branch.supplier} onChange={e => handleChage(e)}/>
                             </div>
 
                             <div className="input-group mt-3 mb-3">

@@ -69,12 +69,12 @@
   "employees": [],
   "branches": [
     {
-      "id": "1198",
-      "br_id": "CN1",
+      "id": "c6e8",
+      "br_id": "CN2",
       "manager": "Duy",
-      "supplier": "Cty 1 thành viên",
       "phone_number": "0865956531",
-      "address": "số 11 ngõ 73 tân triều"
+      "address": "số 11 ngõ 73 tân triều",
+      "profit": "500.000.000đ"
     }
   ]
 }

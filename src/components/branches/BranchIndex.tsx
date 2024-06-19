@@ -9,13 +9,11 @@ import Swal from 'sweetalert2';
 export const BranchIndex = () =>{
     type Branch = {
         id : number;
-        br_id:string;
-        vote : string;
+        br_id:string; 
         manager : string;
-        supplier: string;
         phone_number: number;
         address: string;
-        profit:number;
+        profit:string;
 
     };
     const [branch, setBranches] = React.useState<Branch[]>([]);
@@ -86,9 +84,7 @@ export const BranchIndex = () =>{
           <thead>
             <tr>
               <th className="text-center align-middle">Mã chi nhánh</th>
-              <th className="text-center align-middle">Đánh giá</th>
               <th className="text-center align-middle">Quản lí</th>
-              <th className="text-center align-middle">Nhà cung cấp nguyên liệu</th>
               <th className="text-center align-middle">Số điện thoại</th>
               <th className="text-center align-middle">Địa chỉ</th>
               <th className="text-center align-middle">Lợi nhuận</th>
@@ -99,9 +95,7 @@ export const BranchIndex = () =>{
             {branch.map((branch, index) => (
               <tr key={branch.id}>
                 <td className="text-center align-middle">{branch.br_id}</td>
-                <td className="text-center align-middle">{branch.vote}</td>
                 <td className="text-center align-middle">{branch.manager}</td>
-                <td className="text-center align-middle">{branch.supplier}</td>
                 <td className="text-center align-middle">{branch.phone_number}</td>
                 
                 <td className="text-center align-middle">{branch.address}</td>
