@@ -30,7 +30,7 @@ const AdminNavbar = () => {
                             <a href="" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tài khoản</a>
                             <div className="dropdown-menu m-0">
                                 <Link to="/employees" className="dropdown-item">Khu vực quản trị</Link>
-                                <Link to="/employees" className="dropdown-item">Khu vực quản trị</Link>
+                                <Link to="/branches" className="dropdown-item">Khu vực quản trị chi nhánh</Link>
                                 <Link to="/employees" className="dropdown-item">Khu vực quản trị</Link>
                             </div>
                         </div>
