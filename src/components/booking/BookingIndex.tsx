@@ -1,6 +1,16 @@
 import React from 'react'
+import Swal from 'sweetalert2';
 
 const BookingIndex = () => {
+    const notify = (e: any) => {
+        e.preventDefault();
+        Swal.fire(
+            'Thành công!',
+            'Đặt bàn thành công.',
+            'success'
+        )
+    }
+
   return (
     <div>
         <div className="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
@@ -31,9 +41,9 @@ const BookingIndex = () => {
                                     </div>
                                 </div>
                                 <div className="col-md-6">
-                                    <div className="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" className="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label htmlFor="datetime">Ngày tháng</label>
+                                    <div className="form-floating" id="date3" data-target-input="nearest">
+                                        <input type="datetime-local" className="form-control" id="datetime1" placeholder="Date & Time" data-target="#date3" />
+                                        <label htmlFor="datetime1">Ngày tháng</label>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
@@ -53,7 +63,7 @@ const BookingIndex = () => {
                                     </div>
                                 </div>
                                 <div className="col-12">
-                                    <button className="btn btn-primary w-100 py-3" type="submit">Đặt</button>
+                                    <button onClick={notify} className="btn btn-primary w-100 py-3" type="submit">Đặt</button>
                                 </div>
                             </div>
                         </form>

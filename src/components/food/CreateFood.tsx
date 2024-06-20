@@ -3,6 +3,7 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 
 const CreateFood = () => {
     let navigate = useNavigate();
@@ -30,9 +31,14 @@ const CreateFood = () => {
     const saveFood = async (e: React.FormEvent) => {
         e.preventDefault();
         await axios.post('http://localhost:5000/foods', food);
-        toast.success('Thêm món ăn thành công');
+        // toast.success('Thêm món ăn thành công');
         setFood({});
-        // navigate('/foods');
+        navigate('/foods')
+        Swal.fire(
+            'Thành công!',
+            'Món ăn của bạn đã được thêm thành công.',
+            'success'
+        )
     }
 
     const handleChage = (e: any) => {

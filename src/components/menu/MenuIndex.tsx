@@ -59,7 +59,7 @@ const MenuIndex = () => {
     <div className="container-xxl py-5">
             <div className="container">
                 <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 className="section-title ff-secondary text-center text-primary fw-normal">Thực đơn</h5>
+                    <h5 className="section-title ff-secondary text-center text-primary fw-normal" onClick={() => setCatId(0)}>Thực đơn</h5>
 
                 </div>
                 <div className="tab-className text-center wow fadeInUp" data-wow-delay="0.1s">

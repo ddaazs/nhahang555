@@ -3,6 +3,7 @@ import React from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 
 const EditFood = () => {
     const {id} = useParams();
@@ -47,8 +48,13 @@ const EditFood = () => {
     const saveFood = async (e: React.FormEvent) => {
         e.preventDefault();
         await axios.put(`http://localhost:5000/foods/${id}`, food);
-        toast.success('Cập nhật món ăn thành công');
-        // navigate('/foods');
+        // toast.success('Cập nhật món ăn thành công');
+        navigate('/foods');
+        Swal.fire(
+          'Thành công!',
+          'Món ăn của bạn đã được cập nhật thành công.',
+          'success'
+        )
     }
 
   return (
