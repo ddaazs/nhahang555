@@ -22,7 +22,7 @@
       "name": "Phở bò",
       "price": "55000",
       "img": "https://photo-cms-baophapluat.epicdn.me/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg",
-      "category_id": 1
+      "category_id": "1"
     },
     {
       "id": "2",
@@ -75,6 +75,38 @@
       "phone_number": "0865956531",
       "address": "số 11 ngõ 73 tân triều",
       "profit": "500.000.000đ"
+    }
+  ],
+  "chartData": [
+    {
+      "month": "01",
+      "revenue": 10000000,
+      "expense": 5000000
+    },
+    {
+      "month": "02",
+      "revenue": 10000000,
+      "expense": 4000000
+    },
+    {
+      "month": "03",
+      "revenue": 20000000,
+      "expense": 4000000
+    },
+    {
+      "month": "04",
+      "revenue": 15000000,
+      "expense": 8000000
+    },
+    {
+      "month": "05",
+      "revenue": 20000000,
+      "expense": 1000000
+    },
+    {
+      "month": "06",
+      "revenue": 30000000,
+      "expense": 2000000
     }
   ]
 }

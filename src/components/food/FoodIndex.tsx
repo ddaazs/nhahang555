@@ -35,8 +35,7 @@ const FoodIndex = () => {
             }).then((result) => {
               if (result.isConfirmed) {
                 axios.delete(`http://localhost:5000/foods/${id}`);
-                console.log(`Đã xóa món ăn có ID: ${id}`);
-                toast.success('Xóa món ăn thành công');
+                // toast.success('Xóa món ăn thành công');
                 Swal.fire(
                   'Đã Xóa!',
                   'Món ăn của bạn đã được xóa.',
